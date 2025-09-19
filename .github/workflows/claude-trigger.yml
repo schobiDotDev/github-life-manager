@@ -37,19 +37,16 @@ jobs:
               template = 'templates/goal-template.md';
             }
 
-            const commentBody = `@claude Please enhance this ${contentType} using our ${template}.
-
-**Instructions:**
-1. Analyze the ${contentType} content and extract key information
-2. Apply the ${template} structure
-3. Add specific acceptance criteria and actionable steps
-4. Create a properly formatted file in content/${contentType}s/ directory
-5. Use appropriate filename convention
-
-**Content Type:** ${contentType.toUpperCase()}
-**Template:** ${template}
-
-Please proceed to enhance and organize this content into a structured format!`;
+            const commentBody = '@claude Please enhance this ' + contentType + ' using our ' + template + '.\n\n' +
+              '**Instructions:**\n' +
+              '1. Analyze the ' + contentType + ' content and extract key information\n' +
+              '2. Apply the ' + template + ' structure\n' +
+              '3. Add specific acceptance criteria and actionable steps\n' +
+              '4. Create a properly formatted file in content/' + contentType + 's/ directory\n' +
+              '5. Use appropriate filename convention\n\n' +
+              '**Content Type:** ' + contentType.toUpperCase() + '\n' +
+              '**Template:** ' + template + '\n\n' +
+              'Please proceed to enhance and organize this content into a structured format!';
 
             await github.rest.issues.createComment({
               issue_number: issueNumber,
