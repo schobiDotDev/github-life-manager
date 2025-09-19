@@ -1,0 +1,68 @@
+name: 📝 New Note
+description: Create a new note to be enhanced and organized by Claude
+title: "[NOTE] "
+labels: ["needs-ai", "note"]
+assignees: []
+body:
+  - type: input
+    id: note-title
+    attributes:
+      label: Note Title
+      description: Title or topic of the note
+      placeholder: "Meeting Notes - Q1 Planning"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: note-type
+    attributes:
+      label: Note Type
+      description: What kind of note is this?
+      options:
+        - Meeting Notes
+        - Research
+        - Idea
+        - Learning Notes
+        - Reference
+        - Journal Entry
+        - Other
+      default: 0
+    validations:
+      required: true
+
+  - type: textarea
+    id: note-content
+    attributes:
+      label: Note Content
+      description: The main content of your note
+      placeholder: "Today's meeting covered Q1 objectives, budget allocation, and team assignments. Key decisions made include..."
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: Where did this information come from? (optional)
+      placeholder: "Q1 Planning Meeting, Book: 'The Lean Startup', Website: example.com"
+
+  - type: input
+    id: related-to
+    attributes:
+      label: Related To
+      description: Related projects, tasks, or topics (optional)
+      placeholder: "Website Redesign project, Marketing Strategy"
+
+  - type: input
+    id: tags
+    attributes:
+      label: Tags
+      description: Comma-separated tags for organization (optional)
+      placeholder: "meeting, planning, q1, strategy"
+
+  - type: textarea
+    id: follow-up
+    attributes:
+      label: Follow-up Actions
+      description: Any actions or tasks that came from this note (optional)
+      placeholder: "- Schedule follow-up meeting\n- Research competitor analysis\n- Update project timeline"

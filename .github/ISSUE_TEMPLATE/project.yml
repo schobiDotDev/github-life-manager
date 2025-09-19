@@ -1,0 +1,67 @@
+name: 🚀 New Project
+description: Create a new project to be enhanced and organized by Claude
+title: "[PROJECT] "
+labels: ["needs-ai", "project"]
+assignees: []
+body:
+  - type: input
+    id: project-title
+    attributes:
+      label: Project Title
+      description: Name of the project
+      placeholder: "Website Redesign"
+    validations:
+      required: true
+
+  - type: textarea
+    id: project-description
+    attributes:
+      label: Project Description
+      description: What is this project about?
+      placeholder: "Complete overhaul of the company website to improve user experience and modernize the design."
+    validations:
+      required: true
+
+  - type: textarea
+    id: project-goals
+    attributes:
+      label: Project Goals
+      description: What do you want to achieve?
+      placeholder: "- Improve user engagement by 30%\n- Reduce page load time to under 2 seconds\n- Implement responsive design"
+    validations:
+      required: true
+
+  - type: input
+    id: deadline
+    attributes:
+      label: Project Deadline
+      description: When should this project be completed? (optional)
+      placeholder: "2024-03-15"
+
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Requirements & Scope
+      description: List the main requirements and scope of the project
+      placeholder: "- New homepage design\n- Mobile-responsive layout\n- Contact form integration\n- SEO optimization"
+
+  - type: textarea
+    id: resources
+    attributes:
+      label: Resources & Budget
+      description: What resources are available? (optional)
+      placeholder: "Budget: $10,000\nTeam: 2 developers, 1 designer\nTimeline: 3 months"
+
+  - type: input
+    id: stakeholders
+    attributes:
+      label: Stakeholders
+      description: Who are the key people involved? (optional)
+      placeholder: "John (PM), Sarah (Designer), Mike (Developer)"
+
+  - type: input
+    id: tags
+    attributes:
+      label: Tags
+      description: Comma-separated tags for organization (optional)
+      placeholder: "web, design, frontend, business"

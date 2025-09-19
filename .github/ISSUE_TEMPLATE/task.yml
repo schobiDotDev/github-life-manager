@@ -1,0 +1,65 @@
+name: 📋 New Task
+description: Create a new task to be enhanced and organized by Claude
+title: "[TASK] "
+labels: ["needs-ai", "task"]
+assignees: []
+body:
+  - type: input
+    id: task-title
+    attributes:
+      label: Task Title
+      description: Brief description of what needs to be done
+      placeholder: "Complete project documentation"
+    validations:
+      required: true
+
+  - type: textarea
+    id: task-description
+    attributes:
+      label: Task Description
+      description: Detailed description of the task
+      placeholder: "Write comprehensive documentation for the new feature including setup instructions, examples, and troubleshooting guide."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How urgent is this task?
+      options:
+        - Low
+        - Medium
+        - High
+        - Critical
+      default: 1
+    validations:
+      required: true
+
+  - type: input
+    id: due-date
+    attributes:
+      label: Due Date
+      description: When should this be completed? (optional)
+      placeholder: "2024-01-15"
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any additional information, dependencies, or notes
+      placeholder: "This depends on completing the API integration task first."
+
+  - type: input
+    id: project
+    attributes:
+      label: Related Project
+      description: Which project does this task belong to? (optional)
+      placeholder: "Website Redesign"
+
+  - type: input
+    id: tags
+    attributes:
+      label: Tags
+      description: Comma-separated tags for organization (optional)
+      placeholder: "documentation, frontend, urgent"

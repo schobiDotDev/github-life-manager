@@ -1,0 +1,101 @@
+name: 🎯 New Goal
+description: Create a new goal to be enhanced and organized by Claude
+title: "[GOAL] "
+labels: ["needs-ai", "goal"]
+assignees: []
+body:
+  - type: input
+    id: goal-title
+    attributes:
+      label: Goal Title
+      description: What is your goal?
+      placeholder: "Learn Python programming"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: goal-type
+    attributes:
+      label: Goal Type
+      description: What category does this goal fall into?
+      options:
+        - Personal Development
+        - Career
+        - Health & Fitness
+        - Financial
+        - Education
+        - Relationship
+        - Creative
+        - Business
+        - Other
+      default: 0
+    validations:
+      required: true
+
+  - type: textarea
+    id: goal-description
+    attributes:
+      label: Goal Description
+      description: Detailed description of your goal
+      placeholder: "I want to learn Python programming to advance my career in data science. This includes understanding basic syntax, data structures, and common libraries."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: timeframe
+    attributes:
+      label: Timeframe
+      description: When do you want to achieve this goal?
+      options:
+        - 1 week
+        - 1 month
+        - 3 months
+        - 6 months
+        - 1 year
+        - 2+ years
+        - Ongoing
+      default: 2
+    validations:
+      required: true
+
+  - type: input
+    id: deadline
+    attributes:
+      label: Specific Deadline
+      description: Exact date you want to achieve this by (optional)
+      placeholder: "2024-06-30"
+
+  - type: textarea
+    id: success-criteria
+    attributes:
+      label: Success Criteria
+      description: How will you know you've achieved this goal?
+      placeholder: "- Complete a Python course\n- Build 3 small projects\n- Get comfortable with pandas and numpy\n- Score 80%+ on practice tests"
+
+  - type: textarea
+    id: action-steps
+    attributes:
+      label: Initial Action Steps
+      description: What steps will you take to achieve this goal?
+      placeholder: "1. Enroll in online Python course\n2. Set aside 1 hour daily for coding\n3. Join Python community forums\n4. Find a practice project"
+
+  - type: input
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Why is this goal important to you? (optional)
+      placeholder: "To transition into a data science role and increase my earning potential"
+
+  - type: input
+    id: related-goals
+    attributes:
+      label: Related Goals
+      description: Other goals this connects to (optional)
+      placeholder: "Career advancement, Data science certification"
+
+  - type: input
+    id: tags
+    attributes:
+      label: Tags
+      description: Comma-separated tags for organization (optional)
+      placeholder: "programming, career, education, python"

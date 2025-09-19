@@ -1,0 +1,35 @@
+{
+  "name": "github-life-manager",
+  "version": "1.0.0",
+  "description": "An open-source life management system using GitHub Issues and Claude Code",
+  "main": "scripts/organize-content.js",
+  "scripts": {
+    "organize": "node scripts/organize-content.js",
+    "stats": "node scripts/organize-content.js stats",
+    "archive": "node scripts/organize-content.js archive",
+    "index": "node scripts/organize-content.js index",
+    "cleanup": "node scripts/organize-content.js cleanup",
+    "maintain": "node scripts/organize-content.js all"
+  },
+  "keywords": [
+    "life-management",
+    "productivity",
+    "github",
+    "claude-code",
+    "ai",
+    "organization"
+  ],
+  "author": "GitHub Life Manager Contributors",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/github-life-manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/github-life-manager/issues"
+  },
+  "homepage": "https://github.com/your-username/github-life-manager#readme"
+}

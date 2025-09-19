@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💡 Quick Capture
+    url: https://github.com/your-username/github-life-manager/issues/new?labels=needs-ai,quick&title=[QUICK]%20&body=Quick%20thought%20or%20idea%3A%0A%0A
+    about: Quickly capture a thought, idea, or reminder
+  - name: 📚 Documentation
+    url: https://github.com/your-username/github-life-manager/blob/main/docs/README.md
+    about: Read the documentation for setup and usage instructions
+  - name: 🐛 Bug Report
+    url: https://github.com/your-username/github-life-manager/issues/new?labels=bug&title=[BUG]%20
+    about: Report a bug with the system or workflows
