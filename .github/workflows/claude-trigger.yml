@@ -37,16 +37,19 @@ jobs:
               template = 'templates/goal-template.md';
             }
 
-            const commentBody = '@claude Please enhance this ' + contentType + ' using our ' + template + '.\n\n' +
-              '**Instructions:**\n' +
-              '1. Analyze the ' + contentType + ' content and extract key information\n' +
-              '2. Apply the ' + template + ' structure\n' +
-              '3. Add specific acceptance criteria and actionable steps\n' +
-              '4. Create a properly formatted file in content/' + contentType + 's/ directory\n' +
-              '5. Use appropriate filename convention\n\n' +
+            const commentBody = '@claude Please enhance this ' + contentType + ' and CREATE A PULL REQUEST with the enhanced file.\n\n' +
+              '**SPECIFIC INSTRUCTIONS:**\n' +
+              '1. Read the template from: ' + template + '\n' +
+              '2. Enhance the ' + contentType + ' content using the template structure\n' +
+              '3. CREATE A NEW FILE in the content/' + contentType + 's/ directory\n' +
+              '4. Use filename convention: ' + (contentType === 'task' || contentType === 'note' ? 'YYYY-MM-DD-title.md' : 'title.md') + '\n' +
+              '5. OPEN A PULL REQUEST with the new file\n' +
+              '6. Close this issue when done\n\n' +
+              '**IMPORTANT:** Do not just respond with text - actually create the file and PR!\n\n' +
               '**Content Type:** ' + contentType.toUpperCase() + '\n' +
-              '**Template:** ' + template + '\n\n' +
-              'Please proceed to enhance and organize this content into a structured format!';
+              '**Template:** ' + template + '\n' +
+              '**Target Directory:** content/' + contentType + 's/\n\n' +
+              'Please CREATE the enhanced file and OPEN A PULL REQUEST now!';
 
             await github.rest.issues.createComment({
               issue_number: issueNumber,
