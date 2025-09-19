@@ -1,0 +1,59 @@
+name: Trigger Claude Enhancement
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  trigger-claude:
+    if: contains(join(github.event.issue.labels.*.name, ','), 'needs-ai')
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Trigger Claude GitHub App
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issueNumber = context.issue.number;
+            const issueTitle = context.payload.issue.title;
+            const issueBody = context.payload.issue.body;
+            const labels = context.payload.issue.labels.map(label => label.name);
+
+            // Determine content type
+            let contentType = 'content';
+            let template = 'template';
+
+            if (issueTitle.includes('[TASK]') || labels.includes('task')) {
+              contentType = 'task';
+              template = 'templates/task-template.md';
+            } else if (issueTitle.includes('[PROJECT]') || labels.includes('project')) {
+              contentType = 'project';
+              template = 'templates/project-template.md';
+            } else if (issueTitle.includes('[NOTE]') || labels.includes('note')) {
+              contentType = 'note';
+              template = 'templates/note-template.md';
+            } else if (issueTitle.includes('[GOAL]') || labels.includes('goal')) {
+              contentType = 'goal';
+              template = 'templates/goal-template.md';
+            }
+
+            const commentBody = `@claude Please enhance this ${contentType} using our ${template}.
+
+**Instructions:**
+1. Analyze the ${contentType} content and extract key information
+2. Apply the ${template} structure
+3. Add specific acceptance criteria and actionable steps
+4. Create a properly formatted file in content/${contentType}s/ directory
+5. Use appropriate filename convention
+
+**Content Type:** ${contentType.toUpperCase()}
+**Template:** ${template}
+
+Please proceed to enhance and organize this content into a structured format!`;
+
+            await github.rest.issues.createComment({
+              issue_number: issueNumber,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: commentBody
+            });
